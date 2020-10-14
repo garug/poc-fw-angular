@@ -1,44 +1,22 @@
 <section class="hero is-danger">
-  <div class="hero-body">
-    <div class="container">
-      <h1 class="title">Poc Form</h1>
-      <h2 class="subtitle">Made with Angular</h2>
-    </div>
-  </div>
+  <app-hero title="Poc Form" subtitle="Made with Angular"></app-hero>
 </section>
 <div class="section">
   <div class="container">
     <article class="template">
-      <div class="field">
-        <label class="label">Name</label>
-        <div class="control">
-          <input class="input" type="text" placeholder="Text input" />
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Email</label>
-        <div class="control">
-          <input class="input" type="email" placeholder="Email input" />
-        </div>
-      </div>
+      <app-form-input label="Name" placeholder="Text input"></app-form-input>
+      <app-form-input label="Email" placeholder="Email input"></app-form-input>
 
       <div class="field">
         <div class="control">
           <label class="label">Do you like this content?</label>
-          <label class="radio">
-            <input type="radio" name="question" />
-            Yes
-          </label>
-          <label class="radio">
-            <input type="radio" name="question" />
-            No
-          </label>
+          <app-form-radio label="Yes"></app-form-radio>
+          <app-form-radio label="No"></app-form-radio>
         </div>
       </div>
 
       <div class="control">
-        <button class="button is-danger">Submit</button>
+        <app-button>Submit</app-button>
       </div>
     </article>
     <!-- <progress class="progress is-small is-primary" max="100">15%</progress> -->
