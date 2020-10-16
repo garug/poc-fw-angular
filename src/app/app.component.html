@@ -1,24 +1,50 @@
-<section class="hero is-danger">
-  <app-hero title="Poc Form" subtitle="Made with Angular"></app-hero>
-</section>
+<app-hero title="Poc Form" subtitle="Made with Angular"></app-hero>
 <div class="section">
   <div class="container">
-    <article class="template">
-      <app-form-input label="Name" placeholder="Text input"></app-form-input>
-      <app-form-input label="Email" placeholder="Email input"></app-form-input>
+    <form
+      [formGroup]="pocForm"
+      (ngSubmit)="submitForm()"
+      *ngIf="!submitting; else progress"
+    >
+      <app-form-input
+        formControlName="name"
+        label="Name"
+        name="name"
+        placeholder="Text input"
+      ></app-form-input>
+      <app-form-input
+        formControlName="email"
+        label="Email"
+        name="email"
+        placeholder="Email input"
+      ></app-form-input>
 
       <div class="field">
         <div class="control">
           <label class="label">Do you like this content?</label>
-          <app-form-radio label="Yes"></app-form-radio>
-          <app-form-radio label="No"></app-form-radio>
+          <app-form-radio formControlName="liked" name="liked" label="Yes"></app-form-radio>
+          <app-form-radio formControlName="liked" name="liked" label="No"></app-form-radio>
+          <p class="help is-danger" *ngIf="pocForm.get('liked').errors?.required && pocForm.get('liked').touched">
+            You need tell us if you liked this content
+          </p>
         </div>
       </div>
+
+      <pre class="content" *ngIf="saved; else nothing">{{saved | json}}</pre>
+      <ng-template #nothing>
+        <pre class="content">Nothing to Show</pre>
+      </ng-template>
 
       <div class="control">
         <app-button>Submit</app-button>
       </div>
-    </article>
-    <!-- <progress class="progress is-small is-primary" max="100">15%</progress> -->
+    </form>
+    <ng-template #progress>
+      <progress
+        v-show="submitting"
+        class="progress is-small is-danger"
+        max="100"
+      ></progress>
+    </ng-template>
   </div>
 </div>

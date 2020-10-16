@@ -6,6 +6,7 @@ import { HeroComponent } from './components/hero/hero.component';
 import { FormInputComponent } from './components/form-input/form-input.component';
 import { FormRadioComponent } from './components/form-radio/form-radio.component';
 import { ButtonComponent } from './components/button/button.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,9 @@ import { ButtonComponent } from './components/button/button.component';
     ButtonComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

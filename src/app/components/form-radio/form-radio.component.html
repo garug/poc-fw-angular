@@ -1,4 +1,9 @@
 <label class="radio">
-    <input type="radio" name="question" />
+    <input
+        type="radio"
+        name="question"
+        [value]="value || label"
+        [formControl]="control"
+    />
     <span>{{ " " + label + " " }}</span>
 </label>
